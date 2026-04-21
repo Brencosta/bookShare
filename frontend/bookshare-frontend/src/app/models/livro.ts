@@ -1,9 +1,6 @@
 export class Livro {
-
     id!: number;
-    genero!: string;
     titulo!: string;
+    genero!: string;
     autor!: string;
-
-
 }

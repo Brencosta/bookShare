@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { LivrolistComponent } from './components/livrolist/livrolist.component';
+import { LoginComponent } from './components/layout/login/login.component';
+
 
 export const routes: Routes = [
-    {path: "", redirectTo: "dashboard", pathMatch: "full"},
-    {path: "dashboard", component: LivrolistComponent},    
-    {path: "livros", component: LivrolistComponent}
-];
+    { path: "", redirectTo: "login", pathMatch: "full" }
+    {path:"login", component: LoginComponent}
+    
+    
+]
