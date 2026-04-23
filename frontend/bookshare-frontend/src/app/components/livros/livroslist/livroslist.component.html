@@ -4,8 +4,15 @@
 
       <div class="card shadow">
         <div class="card-body p-4">
+             <h3>Listahem de livros</h3>
+            <div class="direita">
+             <button class="btn btn-primary" mdbripple routerLink="/admin/livros/new">novo </button>           
+</div>
+
+ <br>
 
           <table class="table table-striped table-bordered">
+           
             
             <thead class="table-aquamarine">
               <tr>
@@ -14,6 +21,8 @@
                 <th>Autor</th>
                 <th>Categoria</th>
               </tr>
+
+              
             </thead>
 
             <tbody>
@@ -22,7 +31,12 @@
                 <td>{{ livro.titulo }}</td>
                 <td>{{ livro.autor }}</td>
                 <td>{{ livro.categoria }}</td>
-                 <button class="btn btn-primary" mdbripple routerLink="livros/edit/{{ livro.id }}">editar </button>
+                <td class="direita">
+                    <button class="btn btn-primary" mdbripple routerLink="/admin/livros/edit/{{ livro.id }}" id="butao">editar </button>
+                 <button class="btn btn-danger" mdbripple routerLink="/admin/livros/delete/{{ livro.id }}">excluir </button>
+
+                </td>
+                 
               </tr>
             </tbody>
 

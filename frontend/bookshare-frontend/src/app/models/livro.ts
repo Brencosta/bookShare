@@ -3,4 +3,5 @@ export class Livro {
     titulo!: string;
     genero!: string;
     autor!: string;
+    descricao!: string;
 }

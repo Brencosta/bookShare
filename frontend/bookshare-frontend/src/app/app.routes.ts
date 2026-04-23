@@ -8,13 +8,19 @@ import { MenuComponent } from './components/layout/menu/menu.component';
 
 
 export const routes: Routes = [
-    { path: "", redirectTo: "login", pathMatch: "full" },
-    {path:"login", component: LoginComponent},
-    {path: "admin", component: PrincipalComponent, children:[
-    {path: "livros", component: LivroslistComponent  }]},
-    {path:"livros/new", component: LivrosdetailsComponent},
-    {path:"livros/edit/:id", component: LivrosdetailsComponent},
-    {path: 'menu' , component: MenuComponent },
-    {path: "categorias", component: LivroslistComponent  }
-    
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
+
+  {
+    path: "admin",
+    component: PrincipalComponent,
+    children: [
+      { path: "livros", component: LivroslistComponent },
+      { path: "livros/new", component: LivrosdetailsComponent },
+      { path: "livros/edit/:id", component: LivrosdetailsComponent }
+    ]
+  },
+
+  { path: 'menu', component: MenuComponent },
+  { path: "categorias", component: LivroslistComponent }
 ];

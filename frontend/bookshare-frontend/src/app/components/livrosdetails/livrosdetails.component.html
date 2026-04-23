@@ -1,1 +1,17 @@
-<p>livrosdetails works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+
+      <div class="card shadow">
+        <div class="card-body p-4">
+            <h2 class="card-title mb-4">{{ livro.titulo }}</h2>
+            <p class="card-text"><strong>Autor:</strong> {{ livro.autor }}</p>  
+            <p class="card-text"><strong>Descrição:</strong></p>
+            <p class="card-text">{{ livro.descricao }}</p>
+            <p class="card-text"><strong>Gênero:</strong> {{ livro.genero }}</p>
+    
+            <div class="mt-4">
+                <button class="btn btn-primary" (click)="voltar()">Voltar</button>
+                <button *ngIf="livro.usuarioId === usuarioId" class="btn btn-warning ml-2" (click)="editar()">Editar</button>
+                <button *ngIf="livro.usuarioId === usuarioId" class="btn btn-danger ml-2" (click)="excluir()">Excluir</button>
+            </div>
