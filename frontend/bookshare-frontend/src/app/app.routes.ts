@@ -14,5 +14,7 @@ export const routes: Routes = [
     {path: "livros", component: LivroslistComponent  }]},
     {path:"livros/new", component: LivrosdetailsComponent},
     {path:"livros/edit/:id", component: LivrosdetailsComponent},
-    {path: 'menu' , component: MenuComponent }
+    {path: 'menu' , component: MenuComponent },
+    {path: "categorias", component: LivroslistComponent  }
+    
 ];
