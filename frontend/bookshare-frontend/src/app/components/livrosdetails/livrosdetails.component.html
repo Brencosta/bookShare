@@ -1,17 +1,62 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-12">
+    <div class="col-md-10">
 
-      <div class="card shadow">
+      <div class="card shadow-lg">
         <div class="card-body p-4">
-            <h2 class="card-title mb-4">{{ livro.titulo }}</h2>
-            <p class="card-text"><strong>Autor:</strong> {{ livro.autor }}</p>  
-            <p class="card-text"><strong>Descrição:</strong></p>
-            <p class="card-text">{{ livro.descricao }}</p>
-            <p class="card-text"><strong>Gênero:</strong> {{ livro.genero }}</p>
+
+  
+
+          <hr>
+           <p class="card-text">
+            {{ livro.titulo }}
+            <strong> titulo</strong>
+          </p>
+       
+          <p class="card-text">
+            <strong>Autor:</strong> {{ livro.autor }}
+          </p>
+
+          <p class="card-text">
+            <strong>Gênero:</strong> {{ livro.genero }}
+          </p>
+
+          <p class="card-text">
+            <strong>Descrição:</strong>
+          </p>
+
+          <p class="card-text text-muted">
+            {{ livro.descricao }}
+          </p>
+
+          <hr>
+
     
-            <div class="mt-4">
-                <button class="btn btn-primary" (click)="voltar()">Voltar</button>
-                <button *ngIf="livro.usuarioId === usuarioId" class="btn btn-warning ml-2" (click)="editar()">Editar</button>
-                <button *ngIf="livro.usuarioId === usuarioId" class="btn btn-danger ml-2" (click)="excluir()">Excluir</button>
+          <div class="d-flex justify-content-between mt-4">
+
+            <div>
+              <button class="btn btn-success me-2" (click)="save()">
+                Salvar
+              </button>
+
+              <button class="btn btn-warning me-2" (click)="editar()">
+                Editar
+              </button>
+
+              <button class="btn btn-danger" (click)="delete()">
+                Excluir
+              </button>
             </div>
+
+            <div class="text-muted small align-self-center">
+              Status: Não salvo no banco
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

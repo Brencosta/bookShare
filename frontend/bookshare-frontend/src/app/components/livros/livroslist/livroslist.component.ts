@@ -11,5 +11,13 @@ import { Livro } from '../../../models/livro';
 })
 export class LivroslistComponent {
   lista: Livro[] = []
+  deleteLivro(id: number) {
+    if(!confirm('Tem certeza que deseja deletar este livro?')) {
+      let indice =  this.lista.findIndex(livro => livro.id === id);
+   this.lista.splice(indice, 1);
+  
+    alert('Livro deletado com sucesso!');
+  }
 
+}
 }
