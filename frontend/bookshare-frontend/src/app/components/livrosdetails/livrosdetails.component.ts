@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-livrosdetails',
+  standalone: true,
   imports: [MdbFormsModule, FormsModule],
   templateUrl: './livrosdetails.component.html',
   styleUrl: './livrosdetails.component.css'

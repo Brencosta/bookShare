@@ -19,6 +19,7 @@ public class Livro {
     private String genero;
     private String descricao;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
 
