@@ -19,7 +19,7 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Autor</th>
-                <th>Categoria</th>
+                <th>Descrição</th>
               </tr>
 
               
@@ -30,12 +30,22 @@
                 <td>{{ livro.id }}</td>
                 <td>{{ livro.titulo }}</td>
                 <td>{{ livro.autor }}</td>
-                <td>{{ livro.categoria }}</td>
+                <td>{{ livro.descricao }}</td>
                 <td class="direita">
-                    <button class="btn btn-primary" mdbripple routerLink="/admin/livros/edit/{{ livro.id }}" id="butao">editar </button>
-                 <button class="btn btn-danger" mdbripple routerLink="/admin/livros/delete/{{ livro.id }}">excluir </button>
+                    <td class="direita">
+  <button 
+    class="btn btn-primary me-2"
+    [routerLink]="['/admin/livros/edit', livro.id]">
+    Editar
+  </button>
 
-                </td>
+  <button 
+    class="btn btn-danger"
+    (click)="deleteLivro(livro.id)">
+    Excluir
+  </button>
+</td>
+                
                  
               </tr>
             </tbody>

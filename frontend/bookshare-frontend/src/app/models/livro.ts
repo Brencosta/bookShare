@@ -4,4 +4,5 @@ export class Livro {
     genero!: string;
     autor!: string;
     descricao!: string;
+     user?: any;
 }

@@ -1,57 +1,52 @@
-import { Component, inject } from '@angular/core';
-import { Livro } from '../../models/livro';
-import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import { Livro } from '../../models/livro';
+import { LivroService } from '../../services/livro.service';
+import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-livrosdetails',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule],
   templateUrl: './livrosdetails.component.html',
-  styleUrl: './livrosdetails.component.css'
+  styleUrls: ['./livrosdetails.component.css'],
+  imports: [ FormsModule, CommonModule]
 })
-export class LivrosdetailsComponent {
-  router = inject(ActivatedRoute);
-  router2 = inject(Router);
+export class LivrosdetailsComponent implements OnInit {
 
-  constructor() {
-    let id = this.router.snapshot.params['id'];
-    if(id > 0){
-      this.findbyId(id);
-    }
-   }
   livro: Livro = new Livro();
-  findbyId(id: number) {
-    // buscar no bacnk end
+
+  route = inject(ActivatedRoute);
+  router = inject(Router);
+  livroService = inject(LivroService);
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.params['id']);
+    if (id) {
+      this.findById(id);
+    }
   }
 
+  findById(id: number) {
+    this.livroService.findbyid(id).subscribe({
+      next: (livro: Livro) => {
+        this.livro = livro;
+      },
+      error: () => {
+        Swal.fire('Erro!', 'Livro não encontrado.', 'error');
+      }
+    });
+  }
+
+  delete() {
+    alert('Deseja excluir o livro?');}
+
+    save() {
+    alert('Deseja salvar as alterações?');}
+    edit() {
+    alert('Deseja editar o livro?');}
 
 
-save() {
-  //fazer deoiis pra salvar
-  alert('Livro salvo com sucesso!');
 
- }
-
-delete() {
-  //fazer deoiis pra excluir
-  Swal.fire({
-  title: 'sucesso!',
-  text: 'Livro excluído com sucesso!',
-  icon: 'success',
-  confirmButtonText: 'OK'
-})
-  alert('Livro excluído com sucesso!'); }
- 
-
-editar() {
-  //fazer deoiis pra editar
-  alert('Livro editado com sucesso!'); }
-
-
-  
 }
- 
- 
