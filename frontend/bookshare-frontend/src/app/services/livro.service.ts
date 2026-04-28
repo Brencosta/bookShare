@@ -27,4 +27,7 @@ API = 'http://localhost:8080/api/livraria';
   update(livro: Livro, id: number): Observable<string> {
     return this.http.put<string>(`${this.API}/update/${id}`, livro);
   }
+  findbyId(id: number): Observable<Livro> {
+    return this.http.get<Livro>(`${this.API}//findbyid/{id}`);
+  }
 }
